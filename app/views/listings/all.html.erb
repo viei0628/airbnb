@@ -6,7 +6,7 @@
 </form>
 
 <ul>
-  <% @castles.each do |c| %>
-    <li><%= link_to c.name %></li>
+  <% @castles.each do |castle| %>
+    <li><%= link_to castle.name castle_path(castle) %></li>
   <% end %>
 </ul>
