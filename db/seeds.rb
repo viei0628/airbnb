@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Castle.destroy_all
+
+castles = ["Stirling Castle", "Edinburgh Castle", "Linlithhgow Palace", "Buckingham Palace",
+    "Leeds Castle"]
+
+castles.each do |c|
+  Castle.create(name:c, address:"Scotland, United Kingdom",
+    owner_last_name:"Vieira", owner_first_name:"Timothy")
+end
+

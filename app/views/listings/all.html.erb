@@ -1,1 +1,12 @@
 <h1>Book Your Stay at a Castle</h1>
+
+<form action="/all" method="get">
+  <input type="text" name="castle" placeholder="Search for a place">
+  <input type="submit">
+</form>
+
+<ul>
+  <% @castles.each do |c| %>
+    <li><%= link_to c.name %></li>
+  <% end %>
+</ul>
