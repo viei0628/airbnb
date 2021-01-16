@@ -6,7 +6,13 @@
 </form>
 
 <ul>
-  <% @castles.each do |c| %>
-    <li><%= link_to c.name %></li>
+  <% @castles.each do |castle| %>
+    <li>
+      <%= link_to castle.name, castle_path(castle) %>
+      <%= link_to "Edit", edit_castle_path(castle) %>
+      <%= link_to "Delete", castle_path(castle), method: :delete, data: { confirm: "Are you sure?"} %>
+    </li>
   <% end %>
 </ul>
+
+<%= link_to "Add Castle", new_castle_path %>
