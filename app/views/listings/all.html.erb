@@ -9,8 +9,12 @@
   <% @castles.each do |castle| %>
     <li>
       <%= link_to castle.name, castle_path(castle) %>
-      <%= link_to "Edit", edit_castle_path(castle) %>
-      <%= link_to "Delete", castle_path(castle), method: :delete, data: { confirm: "Are you sure?"} %>
+      <%= link_to edit_castle_path(castle) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to castle_path(castle), method: :delete, data: { confirm: "Are you sure?"} do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
     </li>
   <% end %>
 </ul>

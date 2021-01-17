@@ -10,9 +10,11 @@ class CastlesController < ApplicationController
 
   def create
     @castle = Castle.new(castle_params)
-    @castle.save
-
-    redirect_to castle_path(@castle)
+    if @castle.save
+      redirect_to castle_path(@castle)
+    else
+      render :new
+    end
   end
 
   def edit

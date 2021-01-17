@@ -1,7 +1,5 @@
-<%= form_for(@castle) do |c| %>
-  <%= c.label :name %>
-  <%= c.text_field :name %>
-  <%= c.label :address %>
-  <%= c.text_field :address %>
+<%= simple_form_for(castle) do |c| %>
+  <%= c.input :name %>
+  <%= c.input :address %>
   <%= c.submit %>
 <% end %>
