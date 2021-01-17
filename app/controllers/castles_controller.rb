@@ -1,6 +1,7 @@
 class CastlesController < ApplicationController
+  before_action :set_castle, only: [:show, :edit, :update, :destroy]
+
   def show
-    @castle = Castle.find(params[:id])
   end
 
   def new
@@ -15,21 +16,22 @@ class CastlesController < ApplicationController
   end
 
   def edit
-    @castle = Castle.find(params[:id])
   end
 
   def update
-    @castle = Castle.find(params[:id])
     @castle.update(castle_params)
 
     redirect_to root_path
   end
 
   def destroy
-    @castle = Castle.find(params[:id])
     @castle.destroy
 
     redirect_to root_path
+  end
+
+  def set_castle
+    @castle = Castle.find(params[:id])
   end
 
   # need to use strong params
