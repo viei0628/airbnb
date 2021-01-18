@@ -2,4 +2,13 @@
 <p>Address: <%= @castle.address %></p>
 <p>Owner: <%= @castle.owner_first_name %> <%= @castle.owner_last_name %> </p>
 
+
+
+<%= link_to edit_castle_path(@castle) do %>
+  <i class="fas fa-edit"></i>
+<% end %>
+<%= link_to castle_path(@castle), method: :delete, data: { confirm: "Are you sure?"} do %>
+  <i class="fas fa-trash-alt"></i>
+<% end %>
+<%= link_to "Add Review", new_castle_review_path(@castle) %>
 <%= link_to "BACK", root_path %>

@@ -23,7 +23,7 @@ class CastlesController < ApplicationController
   def update
     @castle.update(castle_params)
 
-    redirect_to root_path
+    redirect_to castle_path(@castle)
   end
 
   def destroy
@@ -35,6 +35,8 @@ class CastlesController < ApplicationController
   def set_castle
     @castle = Castle.find(params[:id])
   end
+
+  private
 
   # need to use strong params
   def castle_params

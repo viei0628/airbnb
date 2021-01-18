@@ -1,0 +1,6 @@
+<%= simple_form_for [ @castle, @review ] do |f|%>
+  <%= f.input :content %>
+  <%= f.submit "Submit Review", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "BACK", castle_path(@castle)%>
