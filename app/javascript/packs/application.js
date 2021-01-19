@@ -27,6 +27,16 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
 });
 
+import { initSweetalert } from '../plugins/init_sweetalert.js';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+});
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
