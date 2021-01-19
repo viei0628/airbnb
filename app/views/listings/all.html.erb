@@ -1,4 +1,17 @@
-<h1>Book Your Stay at a Castle</h1>
+<div class="home-banner">
+  <h1>CastlesBNB</h1>
+  <p>
+    <span id="banner-typed-text"></span>
+  </p>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
+    </div>
+  </div>
+</div>
 
 <form action="/all" method="get">
   <input type="text" name="castle" placeholder="Search for a place">
@@ -18,5 +31,6 @@
     </li>
   <% end %>
 </ul>
-
+<%= image_tag "stirling.jpg", alt: "Stirling Castle", width: 200 %>
+<div class="cas"></div>
 <%= link_to "Add Castle", new_castle_path %>
