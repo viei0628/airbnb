@@ -20,8 +20,9 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'pg'
+gem 'cloudinary', '~> 1.16.0'
 #Custom
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
