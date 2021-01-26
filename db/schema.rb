@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_18_192120) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "castles", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -23,10 +26,10 @@ ActiveRecord::Schema.define(version: 2021_01_18_192120) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
-    t.integer "castles_id"
+    t.bigint "castles_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "castle_id"
+    t.bigint "castle_id"
     t.index ["castle_id"], name: "index_reviews_on_castle_id"
     t.index ["castles_id"], name: "index_reviews_on_castles_id"
   end
