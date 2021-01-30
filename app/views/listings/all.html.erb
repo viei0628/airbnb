@@ -5,13 +5,20 @@
   </p>
 </div>
 
-<button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
+<!-- <button id="sweet-alert-demo" class="btn btn-primary">Click me!</button> -->
 
-<div class="container">
+<div class="container col-12">
   <div class="row justify-content-center">
-    <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
-    </div>
+      <% @castles.each do |castle| %>
+          <div class="card col-xl-3 col-lg-4 col-md-6 col-sm-12">
+            <img class="card-img-top" src="<%= cl_image_path castle.photo.key, width:400, height:300, crop: :fill  %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= castle.name %></h5>
+              <h7 class="card-text">Book a stay at one of the best castles in the world!</h7>
+              <h7 style="display: block; margin-top: 5px" id="sweet-alert-demo" class="book btn btn-primary">Book A Stay<%= link_to "", castle_path(castle) %></h7>
+            </div>
+          </div>
+      <% end %>
   </div>
 </div>
 
@@ -20,19 +27,4 @@
   <input type="submit">
 </form>
 
-<ul>
-  <% @castles.each do |castle| %>
-    <li>
-      <%= link_to castle.name, castle_path(castle) %>
-      <%= link_to edit_castle_path(castle) do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= link_to castle_path(castle), method: :delete, data: { confirm: "Are you sure?"} do %>
-        <i class="fas fa-trash-alt"></i>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-<%= image_tag "stirling.jpg", alt: "Stirling Castle", width: 200 %>
-<div class="cas"></div>
 <%= link_to "Add Castle", new_castle_path %>

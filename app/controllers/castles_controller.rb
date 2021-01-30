@@ -40,7 +40,7 @@ class CastlesController < ApplicationController
 
   # need to use strong params
   def castle_params
-    params.require(:castle).permit(:name, :address)
+    params.require(:castle).permit(:name, :address, :photo)
   end
 
 end

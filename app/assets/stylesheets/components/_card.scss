@@ -4,3 +4,39 @@
   height: 100px;
   width: 250px;
 }
+
+.book:hover {
+  background-color: grey;
+}
+
+.card {
+  padding: 2em;
+  border: 1px solid #ccc;
+  color: black;
+  background: linear-gradient(
+     white, white 50%, #333 50%, #333
+  );
+  background-size: 100% 202%;
+  transition: all 0.2s ease;
+  animation: down-bump 0.4s ease;
+}
+
+.card:hover {
+  background-position: 100% 100%;
+  animation: up-bump 0.4s ease;
+}
+
+.card:hover h5, .card:hover h7 {
+  color: white;
+}
+
+@keyframes up-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 1.5em; }
+  100% { padding-top: 2em; }
+}
+@keyframes down-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 2.5em; }
+  100% { padding-top: 2em; }
+}
