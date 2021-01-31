@@ -6,10 +6,12 @@ class CastlesController < ApplicationController
 
   def new
     @castle = Castle.new
+    authorize @castle
   end
 
   def create
     @castle = Castle.new(castle_params)
+    authorize @castle
     if @castle.save
       redirect_to castle_path(@castle)
     else
@@ -32,11 +34,13 @@ class CastlesController < ApplicationController
     redirect_to root_path
   end
 
-  def set_castle
-    @castle = Castle.find(params[:id])
-  end
 
   private
+
+  def set_castle
+    @castle = Castle.find(params[:id])
+    authorize @castle
+  end
 
   # need to use strong params
   def castle_params

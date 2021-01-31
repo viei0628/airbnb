@@ -27,4 +27,6 @@
   <input type="submit">
 </form>
 
-<%= link_to "Add Castle", new_castle_path %>
+<% if policy(Castle).create? %>
+  <%= link_to "Add Castle", new_castle_path %>
+<% end %>
