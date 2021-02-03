@@ -1,14 +1,32 @@
 <h1><%= @castle.name %></h1>
 <p>Address: <%= @castle.address %></p>
-<p>Owner: <%= @castle.owner_first_name %> <%= @castle.owner_last_name %> </p>
 
 <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>
 
-<%= link_to edit_castle_path(@castle) do %>
-  <i class="fas fa-edit"></i>
+<br>
+<% if policy(@castle).edit? %>
+  <%= link_to edit_castle_path(@castle) do %>
+    <i class="fas fa-edit"></i>
+  <% end %>
 <% end %>
-<%= link_to castle_path(@castle), method: :delete, data: { confirm: "Are you sure?"} do %>
-  <i class="fas fa-trash-alt"></i>
+<% if policy(@castle).destroy? %>
+  <%= link_to castle_path(@castle), method: :delete, data: { confirm: "Are you sure?"} do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
 <% end %>
-<%= link_to "Add Review", new_castle_review_path(@castle) %>
 <%= link_to "BACK", root_path %>
+<% if user_signed_in? %>
+  <%= link_to "Add Review", new_castle_review_path(@castle) %>
+<% end %>
+<ul>
+  <% @castle.reviews.each do |review| %>
+    <li>
+      <%= review.content %>
+      <% if policy(review).destroy? %>
+        <%= link_to castle_review_path(review.id), method: :delete, data: { confirm: "Are you sure you want to delete this review" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

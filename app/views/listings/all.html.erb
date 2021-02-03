@@ -15,7 +15,9 @@
             <div class="card-body">
               <h5 class="card-title"><%= castle.name %></h5>
               <h7 class="card-text">Book a stay at one of the best castles in the world!</h7>
-              <h7 style="display: block; margin-top: 5px" id="sweet-alert-demo" class="book btn btn-primary">Book A Stay<%= link_to "", castle_path(castle) %></h7>
+              <%= link_to castle_path(castle) do %>
+                <h7 style="display: block; margin-top: 5px" class="book btn btn-primary">Book A Stay</h7>
+              <% end %>
             </div>
           </div>
       <% end %>
@@ -27,6 +29,6 @@
   <input type="submit">
 </form>
 
-<% if policy(Castle).create? %>
+<% if policy(Castle).create? && user_signed_in? %>
   <%= link_to "Add Castle", new_castle_path %>
 <% end %>

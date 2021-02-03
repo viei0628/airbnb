@@ -3,10 +3,12 @@ class ReviewsController < ApplicationController
   def new
     @castle = Castle.find(params[:castle_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @castle = Castle.find(params[:castle_id])
     @review.castle = @castle
     if @review.save
@@ -14,6 +16,14 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @castle = Castle.find(params[:id])
+    @review = Review.find(params[:castle_id])
+    authorize @review
+    @review.destroy
+    redirect_to @castle
   end
 
   private
