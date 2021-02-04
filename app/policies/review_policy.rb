@@ -10,6 +10,10 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == record.user_id
+    if user.id == record.user_id
+      true
+    else
+      false
+    end
   end
 end

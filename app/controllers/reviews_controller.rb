@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @user = User.find(current_user.id)
+    @review.user_id = @user.id
     authorize @review
     @castle = Castle.find(params[:castle_id])
     @review.castle = @castle
