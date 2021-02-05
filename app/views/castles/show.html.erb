@@ -1,11 +1,17 @@
 <div class="container col-xl-10 col-lg-10 col-sm-12 col-xs-12">
   <div class="row justify-content-center">
-    <div class="castlepage col-xl-8 col-lg-8 col-sm-10 col-xs-12">
-      <h1><%= @castle.name %></h1>
-      <p>Address: <%= @castle.address %></p>
-
-      <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>
-
+    <div class="castlepage col-xl-8 col-lg-10 col-sm-10 col-xs-12">
+      <div class="row castle-heading">
+        <div class="castle-name">
+          <h1><%= @castle.name %></h1>
+        </div>
+        <div class="caslte-address">
+          <%= @castle.address %>
+        </div>
+      </div>
+      <div class="row justify-content-center castle-images">
+        <%= cl_image_tag @castle.photo.key, height: "100%", width: "100%" %>
+      </div>
       <br>
       <% if policy(@castle).edit? %>
         <%= link_to edit_castle_path(@castle) do %>
@@ -17,7 +23,6 @@
           <i class="fas fa-trash-alt"></i>
         <% end %>
       <% end %>
-      <%= link_to "BACK", root_path %>
       <% if user_signed_in? %>
         <%= link_to "Add Review", new_castle_review_path(@castle) %>
       <% end %>
