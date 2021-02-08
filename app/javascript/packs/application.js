@@ -11,12 +11,6 @@ require("channels")
 
 import 'bootstrap';
 
-import { initMapbox } from '../plugins/init_mapbox';
-
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-});
-
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,7 +36,11 @@ initSweetalert('#sweet-alert-demo', {
 }, (value) => {
   console.log(value);
 });
+import { initMapbox } from '../plugins/init_mapbox';
 
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

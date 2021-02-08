@@ -10,6 +10,10 @@ class ApplicationPolicy
     false
   end
 
+  def all?
+    true
+  end
+
   def show?
     false
   end

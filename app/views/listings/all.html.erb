@@ -21,17 +21,13 @@
             </div>
           </div>
       <% end %>
-  </div>
-
-
-<form action="/all" method="get">
-  <input type="text" name="castle" placeholder="Search for a place">
-  <input type="submit">
-</form>
-<div id="map"
+      <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+
 
 <% if policy(Castle).create? && user_signed_in? %>
   <%= link_to "Add Castle", new_castle_path %>
